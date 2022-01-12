@@ -2,10 +2,10 @@ body,html {
     margin: 0;
     padding: 0;
     
-    
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -39,6 +39,13 @@ body {
     margin-bottom: 5%;
     border-radius: 5px;
     border: 1px solid black;;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2vh;
+    box-sizing: border-box;
+    color: white;
+    font-size: 2rem;
 }
 
 .btn {
