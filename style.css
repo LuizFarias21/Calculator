@@ -72,10 +72,14 @@ body {
     text-shadow: 1px 1px 10px #3b3b3b;
 }
 
-.result {
+.btn:hover {
+    filter: brightness(1.4);
+}
+
+.equals {
     width: 29vh;
 }
 
-.AC {
-    background: linear-gradient(31deg,#f83c3c 0%, #b61d1d 100%);
+.AC, .C {
+    background: linear-gradient(31deg,#f82525 0%, #ac1111 100%);
 }

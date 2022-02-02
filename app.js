@@ -1,18 +1,21 @@
 let toggle = false;
-let num1;
-let num2;
+let num1 = '';
+let num2 = '';
 let operator = '';
 
 let displayValue = document.querySelector('.displayValue');
-const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'dot'];
 
-for (let digit = 0; digit <= digits.length - 1; digit++) {
+for (let digit = 0; digit < digits.length; digit++) {
     const digitButton = document.querySelector(`.${digits[digit]}`);
     digitButton.addEventListener('click', () => {
         if (toggle) displayValue.textContent = '';
         toggle = false;
+
         let copyDisplayValue = displayValue.textContent.split('');
-        copyDisplayValue.push(`${digit}`);
+
+        if (digit === 10 && copyDisplayValue.includes('.') === false) copyDisplayValue.push('.');        
+        if (digit !== 10) copyDisplayValue.push(`${digit}`);
         displayValue.textContent = copyDisplayValue.join('');
         num1 = Number(displayValue.textContent);
     })
@@ -22,6 +25,8 @@ const AC_btn = document.querySelector('.AC');
 
 AC_btn.addEventListener('click', () => {
     displayValue.textContent = '';
+    num1 = '';
+    num2 = '';
 })
 
 const C_btn = document.querySelector('.C');
@@ -32,11 +37,11 @@ C_btn.addEventListener('click', () => {
     displayValue.textContent = copyDisplayValue.join('');
 })
 
-const result_btn = document.querySelector('.result');
+const equals_btn = document.querySelector('.equals');
 
-result_btn.addEventListener('click', () => {
+equals_btn.addEventListener('click', () => {
 
-    calculate();
+    if (operator !== '') calculate(); 
     operator = '';
 })
 
@@ -60,8 +65,9 @@ for (let func of funcs) {
 }
 
 function calculate() {
-
-    displayValue.textContent = operate(operator, num1, num2);
+    
+    displayValue.textContent = Number(operate(operator, num1, num2));
+    if (displayValue.textContent === 'Infinity') displayValue.textContent = 'Do you have feelings? 😢';
     num2 = Number(displayValue.textContent);
 
     toggle = true;
@@ -91,5 +97,3 @@ function percentage(num1, num2) {
 function operate(operator, num1, num2) {
     return operator(num1, num2);
 }
-
-
