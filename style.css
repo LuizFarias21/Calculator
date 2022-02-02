@@ -75,3 +75,7 @@ body {
 .result {
     width: 29vh;
 }
+
+.AC {
+    background: linear-gradient(31deg,#f83c3c 0%, #b61d1d 100%);
+}
