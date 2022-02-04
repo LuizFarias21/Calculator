@@ -30,6 +30,11 @@ body {
     border-right: 1px solid #3b3b3b;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: translateY(3px);
 }
 
 .display {
@@ -40,11 +45,20 @@ body {
     border-radius: 5px;
     border: 1px solid black;;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
     padding: 2vh;
     box-sizing: border-box;
     color: white;
+    font-size: 2rem;
+}
+
+.display-top {
+    font-size: 1.1rem;
+}
+
+.display-bottom {
     font-size: 2rem;
 }
 
